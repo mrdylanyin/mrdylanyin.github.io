@@ -14,7 +14,7 @@
 #+HUGO_TAGS: tag1 tag2
 #+HUGO_CATEGORIES: category1 category2
 
-* test
+* test1
 Hello，World $\int_x^d dx$
 
 
