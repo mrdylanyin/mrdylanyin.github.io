@@ -1,0 +1,58 @@
+---
+title: Example Author
+draft: false
+role: Example Role
+avatar: images/icon.png
+bio: Aenean vel bibendum quam. Aliquam at mollis quam. Proin efficitur.
+organization:
+  name: Example Organization
+  url: https://example.com/
+social:
+  - icon: envelope
+    iconPack: fas
+    url: mailto:example@example.com
+  - icon: twitter
+    iconPack: fab
+    url: https://example.com/
+  - icon: github
+    iconPack: fab
+    url: https://example.com/
+
+weight: 1
+widget:
+  handler: about
+
+  # Options: sm, md, lg and xl. Default is md.
+  width:
+
+  sidebar:
+    # Options: left and right. Leave blank to hide.
+    position:
+    # Options: sm, md, lg and xl. Default is md.
+    scale:
+  
+  background:
+    # Options: primary, secondary, tertiary or any valid color value. Default is primary.
+    color: secondary
+    image:
+    # Options: auto, cover and contain. Default is auto.
+    size:
+    # Options: center, top, right, bottom, left.
+    position:
+    # Options: fixed, local, scroll.
+    attachment: 
+---
+
+## 关于我
+大学时做 CV 深度学习，但专业不是 CS 专业，由于自卑，甚至没敢面试相关工作。工作第一年做数据处理，工作第二年做 Python 开发，现在在想转 Golang 开发。
+
+
+## 详细技术栈
+
+我的技术栈
+- Python
+- Flask
+
+我的另外
+- 一事无成
+- 失败
