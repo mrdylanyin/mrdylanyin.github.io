@@ -43,4 +43,4 @@ jobs:
           external_repository: mrdylanyin/mrdylanyin.github.io
           # 默认是 master 目录，github 上可修改
           publish_branch: main
-          publish_dir: hugo/public
+          publish_dir: mrdylanyin/public
