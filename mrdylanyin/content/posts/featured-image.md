@@ -12,7 +12,7 @@ series:
   - Themes Guide
 date: '2020-05-26'
 lastmod: '2020-05-26'
-featuredImage: images/hero-right.jpg
+featuredImage: /ox-hugo/_20220417_022137screenshot.png
 draft: false
 ---
 
