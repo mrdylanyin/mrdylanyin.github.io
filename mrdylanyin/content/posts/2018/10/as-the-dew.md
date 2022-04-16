@@ -6,7 +6,7 @@ tags = ["dew"]
 categories = ["散文"]
 draft = false
 toc = true
-featuredImage = /ox-hugo/as-the-dew.png
+featuredImage = "/ox-hugo/as-the-dew.png"
 +++
 
 > 花儿伴随着钢琴的旋律飞舞<br />
