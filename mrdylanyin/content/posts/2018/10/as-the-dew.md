@@ -1,11 +1,12 @@
 +++
 title = "As The Dew"
 date = 2018-10-14T00:00:00+08:00
-lastmod = 2022-04-17T02:53:24+08:00
+lastmod = 2022-04-17T04:23:40+08:00
 tags = ["dew"]
 categories = ["散文"]
 draft = false
 toc = true
+featuredImage = /ox-hugo/as-the-dew.png
 +++
 
 > 花儿伴随着钢琴的旋律飞舞<br />
