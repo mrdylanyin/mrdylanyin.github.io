@@ -16,7 +16,7 @@ featuredImage: /ox-hugo/_20220417_022137screenshot.png
 draft: false
 ---
 
-Maecenas maximus, elit in ornare porttitor, nisi eros hendrerit nisl, sed fermentum nulla urna blandit tellus.
+Maaecenas maximus, elit in ornare porttitor, nisi eros hendrerit nisl, sed fermentum nulla urna blandit tellus.
 
 <!--more-->
 
