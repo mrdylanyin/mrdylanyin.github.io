@@ -2,7 +2,7 @@
 title: Dylan Yin
 draft: false
 role: DevOps
-avatar: images/icon.png
+avatar: /ox-hugo/icon.png
 bio: 爱一切简单与美的东西
 <!-- organization: -->
 <!--   name: Example Organization -->

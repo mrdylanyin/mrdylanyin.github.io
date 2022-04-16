@@ -12,11 +12,11 @@ series:
   - Themes Guide
 date: '2020-05-26'
 lastmod: '2020-05-26'
-featuredImage: images/icon.png
+featuredImage: /ox-hugo/icon.png
 draft: false
 ---
 
-Maecenas maximus, elit in ornare porttitor, nisi eros hendrerit nisl, sed fermentum nulla urna blandit tellus.
+Maaecenas maximus, elit in ornare porttitor, nisi eros hendrerit nisl, sed fermentum nulla urna blandit tellus.
 
 <!--more-->
 
