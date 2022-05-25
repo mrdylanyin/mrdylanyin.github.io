@@ -6,7 +6,7 @@
 #+HUGO_DRAFT: false
 #+DATE: [2018-10-14 Sun 0:00]
 #+TITLE: As The Dew
-#+HUGO_TAGS: dew
+#+HUGO_TAGS: Dew
 #+HUGO_CATEGORIES: 散文
 
 #+begin_quote
