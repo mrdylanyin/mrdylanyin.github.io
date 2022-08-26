@@ -1,0 +1,16 @@
+#+OPTIONS: author:nil ^:{}
+#+HUGO_BASE_DIR: ../mrdylanyin
+#+HUGO_SECTION: posts/2022/08
+#+HUGO_CUSTOM_FRONT_MATTER: :toc true
+#+HUGO_AUTO_SET_LASTMOD: t
+#+HUGO_DRAFT: false
+#+DATE: [2022-08-23 Tue 22:18]
+#+TITLE: 6.824 学习笔记
+#+HUGO_TAGS:
+#+HUGO_CATEGORIES:
+
+
+* Debug 相关
+众所周知，6.824 Lab 最难的地方就是 Debug 了，实验里 =util.go= 文件也提供了 =Dprintf= 函数供我们打印日志，可以方便打开或关闭 Debug 的日志。但是一旦进入到 Debug ，面对扑面而来的日志，想靠肉眼 parse 每一个结点都干了什么还是蛮困难的，为此课程中专门提供了篇[[https://blog.josejg.com/debugging-pretty/][博客]]，来帮我们更好地显示 Debug 日志。
+* Lab2A
+* Lab2B
