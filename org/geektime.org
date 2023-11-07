@@ -1,0 +1,130 @@
+#+OPTIONS: author:nil ^:{}
+#+HUGO_BASE_DIR: ../mrdylanyin
+#+HUGO_SECTION: posts/2023/11
+#+HUGO_CUSTOM_FRONT_MATTER: :toc true
+#+HUGO_AUTO_SET_LASTMOD: t
+#+HUGO_DRAFT: false
+#+DATE: [2023-11-07 Tue 05:37]
+#+TITLE: 极客时间文章整理
+#+HUGO_TAGS:
+#+HUGO_CATEGORIES:
+
+
+
+之前收集了很多极客时间的教程，但是不想每次都用浏览器去阅读，正巧我有两台墨水屏设备。于是想把极客的网页整理为书籍 epub 格式，然后阅读做笔记。大致流程为 html->markdown->epub, 之所以不直接用 pandoc 解析为 epub 有几点考虑，一是直接转换效果非常的差，二是我想做一些数据的清理，三是我想要一整个课程合成为一个书籍。尝试下来，我发现 python 中的一个库 html2text 效果符合预期，于是在 ChatGPT 的辅助下，编写了一段脚本，生成一个大的 Markdown 文件，之后用 pandoc 处理后得到 epub 非常符合预期。
+
+#+begin_src python
+import sys
+import subprocess
+import os
+import html2text
+import re
+
+
+def remove_empty_lines_in_indented_code_blocks(content):
+    lines = content.split("\n")
+    in_code_block = False
+    code_block = []
+    res = ""
+
+    for line in lines:
+        if line.startswith(
+            "    "
+        ):  # Check for code block indentation (adjust the number of spaces as needed)
+            in_code_block = True
+            code_block.append(line)
+        else:
+            if in_code_block:
+                # Remove empty lines in the code block
+                code_block = [line for line in code_block if line.strip() != ""]
+                res += "\n".join(code_block)
+                res += "\n\n"
+                in_code_block = False
+                code_block = []
+            if line == "":
+                res += "\n\n"
+            else:
+                res += line
+    return res
+
+
+# 定义一个排序键函数，提取字符串中的数字并转换为整数进行比较
+def custom_sort_key(item):
+    # 使用正则表达式提取字符串中的数字部分
+    import re
+
+    last_slash_index = item.rfind("/")
+    title = item[last_slash_index + 1 :]
+    match = re.search(r"\d+", title)
+    if match:
+        # 将提取的数字部分转换为整数
+        return int(match.group())
+    else:
+        # 如果字符串中没有数字，则返回一个负无穷大的数，确保没有数字的项在最前面
+        return float("+inf")
+
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Usage: python gen_book.py directory_path")
+    else:
+        directory_path = sys.argv[1]
+        last_slash_index = directory_path.rfind("/")
+        book_name = directory_path[last_slash_index + 1 :]
+        file_paths = []
+        # 使用os.walk遍历目录及其子目录下的文件
+        for root, dirs, files in os.walk(directory_path):
+            for file in files:
+                if file.endswith(".html"):  # 只处理后缀为".html"的文件
+                    file_path = os.path.join(root, file)
+                    file_paths.append(file_path)
+
+        file_paths.sort()
+        file_paths = sorted(file_paths, key=custom_sort_key, reverse=False)
+        pattern = r"(.*?)©\ 加微信"
+        pattern2 = r"(.*?)©\ 版权归极客邦科技所有"
+        # 使用 Pandoc 将 Markdown 转换为 PDF
+        with open("./result.md", "a") as result_file:
+            for file_path in file_paths:
+                text = file_path
+                last_slash_index = text.rfind("/")
+                title = text[last_slash_index + 1 :]
+                title = title.replace(".html", "")
+                with open(file_path, "r") as file:
+                    file_content = html2text.html2text(file.read())
+                    match = re.search(pattern, file_content, re.DOTALL)
+                    match2 = re.search(pattern2, file_content, re.DOTALL)
+                    if match or match2:
+                        if match:
+                            matched_content = match.group(1)
+                        if match2:
+                            matched_content = match2.group(1)
+                        matched_content = matched_content.replace("    | \n    \n", "")
+                        matched_content = matched_content.replace(
+                            "    ---|---  \n      \n", ""
+                        )
+                        matched_content = matched_content.replace("    复制代码\n\n", "")
+                        last_image_pattern = (
+                            r"!\[([^\]]*)\]\([^)]+\)(?![\s\S]*!\[[^\]]*\]\([^)]+\))"
+                        )
+                        matched_content = re.sub(
+                            last_image_pattern, "", matched_content
+                        )
+                        matched_content = remove_empty_lines_in_indented_code_blocks(
+                            matched_content
+                        )
+                        result_file.write("# " + str(title) + "\n")
+                        result_file.write(matched_content)
+        subprocess.call(
+            [
+                "pandoc",
+                "result.md",
+                "-o",
+                book_name + ".epub",
+                "--metadata",
+                "title=" + book_name,
+            ]
+        )
+    if os.path.exists("result.md"):
+        os.remove("result.md")
+#+end_src
