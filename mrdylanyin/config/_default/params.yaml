@@ -28,8 +28,20 @@ highlight:
       - python
       - rust
       - json
+      - go
+      - java
+      - latex
+      - lisp
+      - pgsql
+      - shell
+      - sql
+      - typescript
+      - javascript
+      - yaml
+      - xml
     # See https://github.com/highlightjs/cdn-release/tree/master/build/styles for available styles.
-    style: solarized-light
+    # style: github
+    style: atom-one-dark
 
 math:
   handler: katex
