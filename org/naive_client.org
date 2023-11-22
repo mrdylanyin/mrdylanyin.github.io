@@ -5,7 +5,7 @@
 #+HUGO_AUTO_SET_LASTMOD: t
 #+HUGO_DRAFT: false
 #+DATE: [2023-11-22 Wed 23:58]
-#+TITLE: 关于Naive 一些客户端的个人实践
+#+TITLE: 关于 Naive 一些客户端的个人实践
 #+HUGO_TAGS:
 #+HUGO_CATEGORIES:
 

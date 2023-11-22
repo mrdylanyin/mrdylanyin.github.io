@@ -1,7 +1,7 @@
 +++
-title = "关于Naive 一些客户端的个人实践"
+title = "关于 Naive 一些客户端的个人实践"
 date = 2023-11-22T23:58:00+08:00
-lastmod = 2023-11-23T00:14:33+08:00
+lastmod = 2023-11-23T00:16:33+08:00
 draft = false
 toc = true
 +++
