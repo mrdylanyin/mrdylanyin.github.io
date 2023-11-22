@@ -1,7 +1,7 @@
 +++
 title = "极客时间文章整理"
 date = 2023-11-07T05:37:00+08:00
-lastmod = 2023-11-07T14:54:58+08:00
+lastmod = 2023-11-23T01:50:02+08:00
 draft = false
 toc = true
 +++
@@ -46,8 +46,6 @@ def remove_empty_lines_in_indented_code_blocks(content):
 # 定义一个排序键函数，提取字符串中的数字并转换为整数进行比较
 def custom_sort_key(item):
     # 使用正则表达式提取字符串中的数字部分
-    import re
-
     last_slash_index = item.rfind("/")
     title = item[last_slash_index + 1 :]
     match = re.search(r"\d+", title)

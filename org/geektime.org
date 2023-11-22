@@ -51,8 +51,6 @@ def remove_empty_lines_in_indented_code_blocks(content):
 # 定义一个排序键函数，提取字符串中的数字并转换为整数进行比较
 def custom_sort_key(item):
     # 使用正则表达式提取字符串中的数字部分
-    import re
-
     last_slash_index = item.rfind("/")
     title = item[last_slash_index + 1 :]
     match = re.search(r"\d+", title)
