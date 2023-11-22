@@ -1,0 +1,30 @@
++++
+title = "关于Naive 一些客户端的个人实践"
+date = 2023-11-22T23:58:00+08:00
+lastmod = 2023-11-23T00:14:33+08:00
+draft = false
+toc = true
++++
+
+之前的梯子经常被封，无奈套了 CF, 但是速度是在是不怎么稳定，搜索了下选择了 naiveproxy, 原因是了解了下这个协议被封的概率是比较小的，这样就不用套 CF, 速度会相比较之下更稳定，相对来说也比较小众。同时因为比较小众，所以客户端支持还是比较受限的，一般来说是要除了客户端还要安装一个 naiveproxy 的内核。这里推荐下我使用的客户端：
+
+-   安卓：Nekobox
+    谷歌商店和 GitHub 都可以下载，插件安装在 nekobox 的设置，高级插件，了解更多中找到 naiveproxy 插件下载安装即可
+-   IOS: shadowrocket 中选择 http2 或者 https, 不需要单独安装插件
+-   Windows: nekoray, GitHub 可以下载，插件在 naiveproxy 的官方 github 的 release 中下载
+-   Mac: nekoray 官方不支持，但是可以在 nekoray 的 github 的 readme 中找到第三方构建的 Mac 软件包（目前最新版:3.24 的软件是会闪退的，下载之前的版本就好）插件在 naiveproxy 的官方 github 的 release 中下载
+-   Linux: 根据发行版不同，安装方式也不一样，这个可以详细参考 nekoray 的官方仓库，同样插件在 naiveproxy 的官方 github 的 release 中下载
+-   openwrt: ShadowSocksR Plus+ 插件目前是可以支持 naiveproxy 的，不需要单独安装插件
+-   同时，几乎所有平台都可以下载 naiveproxy 中的对应 release, 之后配置 config.json 然后通过命令行运行 naive config.json, 之后手动修改系统代理的方式来科学上网
+
+naiveproxy 协议基本上只有用户名，密码，域名，端口这几个选项，根据客户端的不同，对应填就好，如果有其他要填的默认就好。比如 naive 的命令行客户端的 config.json 就是
+
+```json
+{
+  "listen": "socks://127.0.0.1:1080",
+  "proxy": "https://username:password@example.com:443",
+  "log": "",
+}
+```
+
+由于服务器现在还有一个月的时间到期，所以这段时间就当做测试，如果不套 CF 的话没有被封，新服务器就用这个协议了。
