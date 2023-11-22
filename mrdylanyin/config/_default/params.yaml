@@ -25,6 +25,9 @@ highlight:
     # See https://github.com/highlightjs/cdn-release/tree/master/build/languages for available languages.
     languages:
       - dart
+      - python
+      - rust
+      - json
     # See https://github.com/highlightjs/cdn-release/tree/master/build/styles for available styles.
     style: solarized-light
 
@@ -73,6 +76,6 @@ diagram:
   #   # You can list the key and value you want as below.
   #   # Because Hugo's config params are case-insensitive, you need to add `-` or `_` before the uppercase letters.
   #   # For example, `diagramPadding` should be written as `diagram-Padding` or other acceptable formats.
-  #   theme: 
+  #   theme:
   #   flowchart:
   #     diagram-padding:
